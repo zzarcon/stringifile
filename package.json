@@ -1,6 +1,6 @@
 {
   "name": "stringifile",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Require file content wrapped in xml tags",
   "main": "index.js",
   "scripts": {
