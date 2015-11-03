@@ -9,11 +9,22 @@ var fs = require('fs');
  * 
  * @return {String}         
  */
-module.exports = function(fileName, tag, dir) {
+module.exports = function(fileName, tag, dir, cb) {
   dir = dir || '.';
   
   var uri = [dir, fileName].join('/');
-  var contents = fs.readFileSync(uri).toString();
 
-  return ['<', tag, '>', contents, '</', tag, '>'].join('');
+  if (!cb) {
+    var contents = fs.readFileSync(uri).toString();
+
+    return wrapFile(contents, tag);
+  }
+  
+  fs.readFile(uri, function(err, data) {
+    cb(err, wrapFile(data.toString(), tag))
+  });
 };
+
+function wrapFile(content, tag) {
+  return ['<', tag, '>', content, '</', tag, '>'].join('');  
+}
