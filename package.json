@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec --ui bdd --timeout 5000 tests/*.js",
+    "docs": "./node_modules/.bin/documentation index.js --name Stringifile -f md -o md/docs.md && cat md/intro.md > README.md && cat md/docs.md >> README.md",
     "amend": "git add . && git commit --amend --reuse-message=HEAD",
     "push": "git push --tags && git push",
     "release": "npm version patch --force && npm run amend && npm run push && npm publish"
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/zzarcon/stringifile",
   "devDependencies": {
+    "documentation": "^3.0.1",
     "mocha": "^2.3.3"
   }
 }

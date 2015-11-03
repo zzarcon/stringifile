@@ -1,12 +1,23 @@
 var fs = require('fs');
 
 /**
- * Returns the content of a file wrapped in xml tags
- * 
+ * Returns the content of a file wrapped in xml tags.
+ *
+ * @module Stringifile
  * @param {String} fileName - Name of the file
  * @param {String} tag - Tag name
  * @param {String} [dir] - Directory to find the file
- * 
+ * @param {Function} [cb] - Callback
+ *
+ * @example 
+ *   //Sync mode:
+ *   var styles = stringifile('app.css', 'style', 'public/assets')
+ *
+ *   //Async mode:
+ *   stringifile('app.css', 'style', 'public/assets', function(error, contents) {
+ *     var styles = contents;
+ *   });
+ *   
  * @return {String}         
  */
 module.exports = function(fileName, tag, dir, cb) {
