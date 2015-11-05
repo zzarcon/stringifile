@@ -7,7 +7,7 @@ Node module for require file content wrapped in xml tags
 **server.js**
 ```javascript
 var stringifile = require('stringifile');
-var criticalCss = stringifile('./styles/app.css');
+var criticalCss = stringifile('critical.css', 'style', './styles/');
 
 ```
 
@@ -31,7 +31,9 @@ To see a live demo:
 - `$ cd showcase`
 - `$ npm i`
 - `$ node server.js`
-- [http://localhost:8080](http://localhost:8080)# Stringifile
+- Open [http://localhost:8080](http://localhost:8080)
+
+# Stringifile
 
 Returns the content of a file wrapped in xml tags.
 
